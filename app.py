@@ -80,14 +80,23 @@ def main():
         st.write("---")
         st.markdown(f'<h5 style="color:#3475eb;font-size:30px;">{"Automation Scripts"}</h5>', unsafe_allow_html=True)
         with st.container():
-            col_1, col_2, col_3, col4_ = st.columns(4)
+            col_1, col_2, col_3, col_4 = st.columns(4)
+
+            # ----- CODE CHECKBOXES -----
             with col_1:
-                G1 = st.checkbox("GitHub Push Automatically")
-            if G1:
+                PS1 = st.checkbox("GitHub Push Automatically")
+            with col_2:
+                PS3 = st.checkbox("Palindrome or Not")
+            with col_3:
+                PS4 = st.checkbox("Replace None with Recent Value")
+            with col_4:
+                PS2 = st.checkbox("Different Copy Command Functions")
+
+            # ---- POWERSHELL CODES -----
+            if PS1:
                 st.write("You will discover how to automatically Push your all Repository into your GitHub "
                          "every day using a Windows scheduled task.")
                 code = '''$Path = 'C:\\All_Repository_Folder_Path'
-
 $Folders = Get-ChildItem -Path $Path
 $Date = Get-Date
 foreach ($Item in $Folders.Name)
@@ -107,7 +116,115 @@ foreach ($Item in $Folders.Name)
     }   
 }'''
                 st.code(code, language='powershell')
+            if PS2:
+                st.write("In this programme, will go through how to create an array, use of join and how to create/call "
+                         "functions")
+                code = '''# Check for Palindrome or not
 
+Function Judge_Palindrome($arr)
+{
+    # Starting point is index -1 (the last character of the string) 
+    # I am moving backwards towards the first character
+    # Here I am just using a negative index greater than the string length -200
+    $mem = $arr[-1..-200] -join '' 
+    if ($arr -eq $mem) {
+        return 1
+    }
+    return -1
+}
+
+Function Main{
+
+    $array = 'KoloK'
+    $result = Judge_Palindrome($array)
+    if ($result -eq 1) {
+        Write-Host "It's a Palindrome"
+    }else {
+        Write-Host "Not a Palindrome"
+    }
+}
+
+Main
+}'''
+                st.code(code, language='powershell')
+            if PS3:
+                st.write(
+                    "In this programme, will go through how to use for loop, if condition and how to create/call "
+                    "functions")
+                code = '''
+# Given an array containing None values fill in the None values with most recent non None value in the array.
+# Test case:
+#     array = [1,None,2,3,None,None,5,None]
+#     output = [1, 1, 2, 3, 3, 3, 5, 5]
+
+
+Function None_Replace($arr)
+{
+    $count = 0
+    foreach ($item in $arr) {
+        if ($item -eq ' ') {
+            $arr[$count] = $arr[$count-1]
+        }
+        $count++
+    }
+    return $arr
+}
+
+Function Main{
+
+    $array = @(1,' ',2,3,' ',' ',5,' ')
+    $replace = None_Replace($array)
+    Write-Host "$replace"
+}
+
+Main'''
+                st.code(code, language='powershell')
+            if PS4:
+                st.write(
+                    "In this programme, will go through different types of Copy command examples "
+                    "functions")
+                code = '''#####################################################################
+# Copy Item from Source to Destination can have below actions:
+#####################################################################
+# 1. Copy File with Copy-Item cmdlet
+# 2. Recursively Copy Sub-Directories with Copy-Item cmdlet
+# 3. Copy Files from Multiple Directories and Merge into One Folder
+# 4. Exclude Particular File Type from Copy
+# 5. Exclude a Particular File Type with Specific Name from Copy operation
+# 6. Copy Files Based on Filename Prefix
+# 7. Copy Files Containing Particular Keyword
+# 8. Copy Files Without Preserving Directory Structure
+#####################################################################
+
+
+#################################
+#            Examples           #
+#################################
+
+# 1. Copy File with Copy-Item cmdlet
+Copy-Item C:\\Users\\Source\\Test.txt C:\\Users\\Destination
+
+# 2. Recursively Copy Sub-Directories with Copy-Item cmdlet
+Copy-Item C:\Users\\DXZ\\Downloads\\farely\* C:\\Users\\DXZ\\Downloads\\Fare.Ly -recurse
+
+# 3. Copy Files from Multiple Directories and Merge into One Folder
+Copy-Item C:\\Users\\Source\A\\*, C:\\Users\\Source\\B\\* C:\\Users\\Destination
+
+# 4. Exclude Particular File Type and Foler from Copy
+Copy-Item C:\\Users\\Source\\ C:\\Users\\Destination -recurse -exclude ('*.txt', 'Folder1')
+
+# 5. Exclude a Particular File Type with Specific Name from Copy operation
+Copy-Item C:\\Users\\Source\\ C:\\Users\\Destination -recurse -exclude [a-d]*.txt
+
+# 6. Copy Files Based on Filename Prefix
+Copy-Item C:\\Users\\Source C:\\Users\\Destination -filter DSC_* -recurse 
+
+# 7. Copy Files Containing Particular Keyword
+Get-ChildItem C:\\Users\\Source -recurse -filter '*DSC*.jpg' | Copy-Item -destination C:\\Users\\Destination
+
+# 8. Copy Files Without Preserving Directory Structure
+Get-ChildItem C:\\Users\\Source -recurse -force -filter "Aa*" | Copy-Item C:\\Users\\Destination'''
+                st.code(code, language='powershell')
     elif choice == "Python":
         # ----- HEADER SECTION -----
         with st.container():
