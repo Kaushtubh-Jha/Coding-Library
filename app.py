@@ -86,11 +86,11 @@ def main():
             with col_1:
                 PS1 = st.checkbox("GitHub Push Automatically")
             with col_2:
-                PS3 = st.checkbox("Palindrome or Not")
+                PS2 = st.checkbox("Palindrome or Not")
             with col_3:
-                PS4 = st.checkbox("Replace None with Recent Value")
+                PS3 = st.checkbox("Replace None with Recent Value")
             with col_4:
-                PS2 = st.checkbox("Different Copy Command Functions")
+                PS4 = st.checkbox("Different Copy Command Functions")
 
             # ---- POWERSHELL CODES -----
             if PS1:
@@ -208,9 +208,9 @@ Copy-Item C:\\Users\\Source\\Test.txt C:\\Users\\Destination
 Copy-Item C:\\Users\\DXZ\\Downloads\\farely\* C:\\Users\\DXZ\\Downloads\\Fare.Ly -recurse
 
 # 3. Copy Files from Multiple Directories and Merge into One Folder
-Copy-Item C:\\Users\\Source\A\\*, C:\\Users\\Source\\B\\* C:\\Users\\Destination
+Copy-Item C:\\Users\\Source\\A\\*, C:\\Users\\Source\\B\\* C:\\Users\\Destination
 
-# 4. Exclude Particular File Type and Foler from Copy
+# 4. Exclude Particular File Type and Folder from Copy
 Copy-Item C:\\Users\\Source\\ C:\\Users\\Destination -recurse -exclude ('*.txt', 'Folder1')
 
 # 5. Exclude a Particular File Type with Specific Name from Copy operation
