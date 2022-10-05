@@ -75,6 +75,38 @@ def main():
                 st.markdown("Copy this command and paste on PowerShell console and hit enter. For Pop-Up confirmation "
                             "click on **_Yes All_**. Now you are ready to use your first script. Hit run again !!!",
                             unsafe_allow_html=False)
+
+        # ----- GitHub Automation -----
+        st.write("---")
+        st.markdown(f'<h3 style="color:#3455eb;font-size:30px;">{"GitHub Automation"}</h3>', unsafe_allow_html=True)
+        with st.container():
+            col_1, col_2, col_3, col4_ = st.columns(4)
+            with col_1:
+                G1 = st.checkbox("GitHub Push Automatically")
+            if G1:
+                st.write("You will discover how to automatically Push your code into your GitHub repository "
+                         "every day using a Windows scheduled task.")
+                code = '''$Path = 'C:\\Repository_Path'
+$Folders = Get-ChildItem -Path $Path
+$Date = Get-Date
+foreach ($Item in $Folders.Name)
+{
+    if ($Item -eq ".vscode")
+    {
+        continue
+    }
+    else
+    {
+        Write-Host "******* Working on $Item Repository *******" -ForegroundColor Green
+        Set-Location -Path "$Path\$Item"
+        git pull origin main -q
+        git add -A 
+        git commit -m "$Date" -q
+        git push origin main -q
+    }   
+}'''
+                st.code(code, language='powershell')
+
     elif choice == "Python":
         # ----- HEADER SECTION -----
         with st.container():
