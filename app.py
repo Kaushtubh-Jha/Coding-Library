@@ -84,7 +84,7 @@ def main():
             with col_1:
                 G1 = st.checkbox("GitHub Push Automatically")
             if G1:
-                st.write("You will discover how to automatically Push your code into your GitHub repository "
+                st.write("You will discover how to automatically Push your all Repository into your GitHub "
                          "every day using a Windows scheduled task.")
                 code = '''$Path = 'C:\\Repository_Path'
 $Folders = Get-ChildItem -Path $Path
