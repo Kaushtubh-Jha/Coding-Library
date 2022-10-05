@@ -86,7 +86,7 @@ def main():
             if G1:
                 st.write("You will discover how to automatically Push your all Repository into your GitHub "
                          "every day using a Windows scheduled task.")
-                code = '''$Path = 'C:\\Repository_Path'
+                code = '''$Path = 'C:\\All_Repository_Folder_Path'
 
 $Folders = Get-ChildItem -Path $Path
 $Date = Get-Date
