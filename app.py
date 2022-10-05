@@ -205,7 +205,7 @@ Main'''
 Copy-Item C:\\Users\\Source\\Test.txt C:\\Users\\Destination
 
 # 2. Recursively Copy Sub-Directories with Copy-Item cmdlet
-Copy-Item C:\Users\\DXZ\\Downloads\\farely\* C:\\Users\\DXZ\\Downloads\\Fare.Ly -recurse
+Copy-Item C:\\Users\\DXZ\\Downloads\\farely\* C:\\Users\\DXZ\\Downloads\\Fare.Ly -recurse
 
 # 3. Copy Files from Multiple Directories and Merge into One Folder
 Copy-Item C:\\Users\\Source\A\\*, C:\\Users\\Source\\B\\* C:\\Users\\Destination
