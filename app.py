@@ -87,6 +87,7 @@ def main():
                 st.write("You will discover how to automatically Push your all Repository into your GitHub "
                          "every day using a Windows scheduled task.")
                 code = '''$Path = 'C:\\Repository_Path'
+
 $Folders = Get-ChildItem -Path $Path
 $Date = Get-Date
 foreach ($Item in $Folders.Name)
@@ -99,10 +100,10 @@ foreach ($Item in $Folders.Name)
     {
         Write-Host "******* Working on $Item Repository *******" -ForegroundColor Green
         Set-Location -Path "$Path\$Item"
-        git pull origin main -q
+        git pull -q
         git add -A 
         git commit -m "$Date" -q
-        git push origin main -q
+        git push -q
     }   
 }'''
                 st.code(code, language='powershell')
