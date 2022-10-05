@@ -30,6 +30,7 @@ bash_lottie = load_lottieurl("https://assets1.lottiefiles.com/packages/lf20_tBkh
 perl_lottie = load_lottieurl("https://assets10.lottiefiles.com/packages/lf20_uR3DwK9y5B.json")
 vb_lottie = load_lottieurl("https://assets2.lottiefiles.com/packages/lf20_l3sfdi9x.json")
 nice_work_lottie = load_lottieurl("https://assets6.lottiefiles.com/packages/lf20_L7UPXCrytj.json")
+point_arrow_lottie = load_lottieurl("https://assets4.lottiefiles.com/packages/lf20_zoaqifdo.json")
 local_css("style/style.css")
 
 
@@ -54,6 +55,26 @@ def main():
                 st.write("[Learn More About Me>](https://kaushtubh-jha.github.io/my-portfolio/)")
             with right_col:
                 st_lottie(powershell_lottie, height=300, key="coding")
+
+        # ----- SMALL DETAILS ----
+        st.write("---")
+        with st.container():
+            left_col, middle_col, right_col = st.columns(3)
+            with left_col:
+                st.subheader("Enable Execution Policy")
+                st.write("You might see this error if you run PowerShell first time.")
+                st.error("""
+                File C:\\Users\\FIle_Path\\Sample.ps1 cannot be loaded because running scripts is disabled on this 
+                system. ***** UnauthorizedAccess """)
+                st.info("Use this command to allow Execution Policy")
+            with middle_col:
+                st_lottie(point_arrow_lottie, height=300, key="arrow")
+            with right_col:
+                st.subheader("Command To Run")
+                st.info("Set-ExecutionPolicy RemoteSigned -Scope CurrentUser")
+                st.markdown("Copy this command and paste on PowerShell console and hit enter. For Pop-Up confirmation "
+                            "click on **_Yes All_**. Now you are ready to use your first script. Hit run again !!!",
+                            unsafe_allow_html=False)
     elif choice == "Python":
         # ----- HEADER SECTION -----
         with st.container():
