@@ -76,9 +76,9 @@ def main():
                             "click on **_Yes All_**. Now you are ready to use your first script. Hit run again !!!",
                             unsafe_allow_html=False)
 
-        # ----- GitHub Automation -----
+        # ----- AUTOMATION SCRIPTS-----
         st.write("---")
-        st.markdown(f'<h3 style="color:#3455eb;font-size:30px;">{"GitHub Automation"}</h3>', unsafe_allow_html=True)
+        st.markdown(f'<h5 style="color:#3475eb;font-size:30px;">{"Automation Scripts"}</h5>', unsafe_allow_html=True)
         with st.container():
             col_1, col_2, col_3, col4_ = st.columns(4)
             with col_1:
