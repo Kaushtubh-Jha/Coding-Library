@@ -1,4 +1,4 @@
-﻿$Path = 'C:\Users\DxZCr\Documents\GitHub\'
+﻿$Path = '\Documents\GitHub\'
 
 $Folders = Get-ChildItem -Path $Path
 
